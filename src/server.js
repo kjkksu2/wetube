@@ -12,6 +12,8 @@ app.set("views", process.cwd() + "/src/views");
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
+app.use("/uploads", express.static("uploads"));
+
 app.use("/", rootRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
