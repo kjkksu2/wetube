@@ -9,10 +9,10 @@ export const home = async (req, res) => {
 // Search
 export const search = async (req, res) => {
   const {
-    query: { name },
+    query: { keyword },
   } = req;
   const videos = await Video.find({
-    title: { $regex: `${name}`, $options: "i" },
+    title: { $regex: keyword, $options: "i" },
   });
   return res.render("videos/search", { pageTitle: "Search", videos });
 };
