@@ -10,6 +10,10 @@ const videoModel = new mongoose.Schema({
     required: true,
   },
   description: String,
+  views: {
+    type: Number,
+    default: 0,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
