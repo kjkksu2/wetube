@@ -1,11 +1,13 @@
 import express from "express";
+import { join, login, logout } from "../controllers/userController";
+import { home, search } from "../controllers/videoController";
 
 const rootRouter = express.Router();
 
-rootRouter.get("/", (req, res) => res.send("Home"));
-rootRouter.get("/join", (req, res) => res.send("join"));
-rootRouter.get("/login", (req, res) => res.send("login"));
-rootRouter.get("/logout", (req, res) => res.send("logout"));
-rootRouter.get("/search", (req, res) => res.send("search"));
+rootRouter.get("/", home);
+rootRouter.get("/join", join);
+rootRouter.get("/login", login);
+rootRouter.get("/logout", logout);
+rootRouter.get("/search", search);
 
 export default rootRouter;
