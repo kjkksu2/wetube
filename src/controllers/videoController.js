@@ -1,14 +1,32 @@
 import mongoose from "mongoose";
 import Video from "../models/Video";
 
-export const home = (req, res) => {
-  return res.render("videos/home", { pageTitle: "Home" });
+export const home = async (req, res) => {
+  const videos = await Video.find();
+  return res.render("videos/home", { pageTitle: "Home", videos });
 };
-export const search = (req, res) => {
-  return res.render("videos/search", { pageTitle: "Search" });
-};
-export const editVideo = (req, res) => res.send("edit-video");
 
+// Search
+export const search = async (req, res) => {
+  const {
+    query: { name },
+  } = req;
+  const videos = await Video.find({
+    title: { $regex: `${name}`, $options: "i" },
+  });
+  return res.render("videos/search", { pageTitle: "Search", videos });
+};
+
+// Watch
+export const watch = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  const video = await Video.findById(id);
+  return res.render("videos/watch", { pageTitle: video.title, video });
+};
+
+// Upload
 export const getUploadVideo = (req, res) => {
   return res.render("videos/uploadVideo", { pageTitle: "Upload Video" });
 };
@@ -23,6 +41,35 @@ export const postUploadVideo = async (req, res) => {
     title,
     description,
   });
-  console.log(video);
-  return res.render("videos/uploadVideo", { pageTitle: "Upload Video" });
+
+  return res.redirect("/");
+};
+
+// Edit
+export const getEditVideo = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  const video = await Video.findById(id);
+  return res.render("videos/editVideo", { pageTitle: "Upload Video", video });
+};
+export const postEditVideo = async (req, res) => {
+  const {
+    params: { id },
+    body: { title, description },
+  } = req;
+  const video = await Video.findByIdAndUpdate(id, {
+    title,
+    description,
+  });
+  return res.redirect(`/videos/${id}`);
+};
+
+// Delete
+export const deleteVideo = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  await Video.findByIdAndDelete(id);
+  return res.redirect("/");
 };
