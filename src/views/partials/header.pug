@@ -1,2 +1,6 @@
 header 
-    h1 Wetube 
+    a(href="/")
+        i.fab.fa-youtube
+    form(method="GET", action="/search")
+        input(type="text", placeholder="Search by...", name="name", required)
+        input(type="submit", value="search")

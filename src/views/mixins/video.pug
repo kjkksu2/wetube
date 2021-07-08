@@ -1,0 +1,8 @@
+mixin video(info)
+    a(href=`/videos/${info._id}`)
+        video(src=info.fileUrl) 
+    div 
+        h3=info.title 
+        h4=info.description
+        h4 #{info.views}회
+        h4=info.createdAt

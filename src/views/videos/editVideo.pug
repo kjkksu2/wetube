@@ -1,0 +1,7 @@
+extends ../base.pug
+
+block content 
+    form(method="POST")
+        input(type="text", name="title", value=video.title, required)
+        input(type="text", name="description", value=video.description, required)
+        input(type="submit", value="Edit video")

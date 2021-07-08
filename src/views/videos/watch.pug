@@ -1,0 +1,12 @@
+extends ../base.pug
+
+block content 
+    video(src="/" + video.fileUrl, controls=true)
+    a(href=video._id + "/edit-video") Edit Video &rarr;
+    br
+    a(href=video._id + "/delete-video") Delete Video &rarr;
+    div 
+        h3=video.title 
+        h4=video.description
+        h4 #{video.views}회
+        h4=video.createdAt
