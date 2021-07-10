@@ -1,6 +1,18 @@
 header 
     a(href="/")
         i.fab.fa-youtube
-    form(method="GET", action="/search")
-        input(type="text", placeholder="Search by...", name="keyword", required)
-        input(type="submit", value="search")
+    br
+    nav
+        ul
+            if !loggedIn
+                li
+                    a(href="/login") Login
+                li
+                    a(href="/join") Join
+            else
+                li 
+                    a(href=`/users/${user._id}/upload-video`) Upload Video
+                li
+                    a(href=`/users/${user._id}`) Edit Profile
+                li
+                    a(href="/logout") Logout
