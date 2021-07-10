@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 import Video from "../models/Video";
 
+// Home
 export const home = async (req, res) => {
-  const videos = await Video.find();
+  const videos = await Video.find().sort({ createdAt: -1 });
   return res.render("videos/home", { pageTitle: "Home", videos });
 };
 
@@ -26,26 +27,7 @@ export const watch = async (req, res) => {
   return res.render("videos/watch", { pageTitle: video.title, video });
 };
 
-// Upload
-export const getUploadVideo = (req, res) => {
-  return res.render("videos/uploadVideo", { pageTitle: "Upload Video" });
-};
-export const postUploadVideo = async (req, res) => {
-  const {
-    file: { path },
-    body: { title, description },
-  } = req;
-
-  const video = await Video.create({
-    fileUrl: path,
-    title,
-    description,
-  });
-
-  return res.redirect("/");
-};
-
-// Edit
+// Edit Video
 export const getEditVideo = async (req, res) => {
   const {
     params: { id },
@@ -65,7 +47,7 @@ export const postEditVideo = async (req, res) => {
   return res.redirect(`/videos/${id}`);
 };
 
-// Delete
+// Delete Video
 export const deleteVideo = async (req, res) => {
   const {
     params: { id },
