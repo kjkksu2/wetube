@@ -1,3 +1,5 @@
+import bcrypt from "bcrypt";
+import fetch from "node-fetch";
 import User from "../models/User";
 import Video from "../models/Video";
 
@@ -62,7 +64,8 @@ export const postLogin = async (req, res) => {
       });
     }
 
-    if (user.password !== password) {
+    const checkPassword = await bcrypt.compare(password, user.password);
+    if (!checkPassword) {
       return res.status(404).render("users/login", {
         pageTitle: "login",
         errorMessage: "Password is wrong.",
@@ -132,7 +135,11 @@ export const postChangePassword = async (req, res) => {
     } = req;
 
     const user = await User.findById(id);
-    if (user.password !== current__password) {
+    const checkPassword = await bcrypt.compare(
+      current__password,
+      user.password
+    );
+    if (!checkPassword) {
       return res.status(404).render("users/changePassword", {
         pageTitle: "change-password",
         errorMessage: "Current password is wrong.",
@@ -147,7 +154,7 @@ export const postChangePassword = async (req, res) => {
 
     user.password = change__password1;
     user.save();
-    return res.redirect("/");
+    return res.redirect("/logout");
   } catch (error) {
     console.log(error);
     return res
@@ -173,4 +180,64 @@ export const postUploadVideo = async (req, res) => {
   });
 
   return res.redirect("/");
+};
+
+// Github
+export const githubLogin = (req, res) => {
+  const base_url = "https://github.com/login/oauth/authorize";
+  const config = {
+    client_id: process.env.GITHUB_CLIENT_ID,
+    allow_signup: false,
+    scope: "read:user user:email",
+  };
+  const config_url = new URLSearchParams(config).toString();
+  const final_url = `${base_url}?${config_url}`;
+  return res.redirect(final_url);
+};
+export const githubCallback = async (req, res) => {
+  const base_url = "https://github.com/login/oauth/access_token";
+  const config = {
+    client_id: process.env.GITHUB_CLIENT_ID,
+    client_secret: process.env.GITHUB_CLIENT_SECRET,
+    code: req.query.code,
+  };
+  const config_url = new URLSearchParams(config).toString();
+  const final_url = `${base_url}?${config_url}`;
+  const tokenRequest = await (
+    await fetch(final_url, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+    })
+  ).json();
+
+  if ("access_token" in tokenRequest) {
+    const { access_token } = tokenRequest;
+    const apiUrl = "https://api.github.com";
+    const userData = await (
+      await fetch(`${apiUrl}/user`, {
+        headers: {
+          Authorization: `token ${access_token}`,
+        },
+      })
+    ).json();
+
+    const emailData = await (
+      await fetch(`${apiUrl}/user/emails`, {
+        headers: {
+          Authorization: `token ${access_token}`,
+        },
+      })
+    ).json();
+
+    const email = emailData.find(
+      (email) => email.primary === true && email.verified === true
+    );
+    if (!email) {
+      return res.redierct("/login");
+    }
+  } else {
+    return res.redirect("/login");
+  }
 };
