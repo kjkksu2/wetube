@@ -17,12 +17,10 @@ rootRouter.get("/", home);
 rootRouter.get("/search", search);
 
 // Join
-rootRouter.get("/join", getJoin);
-rootRouter.post("/join", postJoin);
+rootRouter.route("/join").get(getJoin).post(postJoin);
 
 // Login
-rootRouter.get("/login", getLogin);
-rootRouter.post("/login", postLogin);
+rootRouter.route("/login").get(getLogin).post(postLogin);
 
 // Logout
 rootRouter.get("/logout", logout);

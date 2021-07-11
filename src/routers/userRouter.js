@@ -6,25 +6,33 @@ import {
   postEditProfile,
   getChangePassword,
   postChangePassword,
+  githubLogin,
+  githubCallback,
 } from "../controllers/userController";
 import { uploadVideo } from "../middlewares";
 
 const userRouter = express.Router();
 
 // Edit Profile
-userRouter.get("/:id([0-9a-f]{24})", getEditProfile);
-userRouter.post("/:id([0-9a-f]{24})", postEditProfile);
+userRouter
+  .route("/:id([0-9a-f]{24})")
+  .get(getEditProfile)
+  .post(postEditProfile);
 
 // Change Password
-userRouter.get("/:id([0-9a-f]{24})/change-password", getChangePassword);
-userRouter.post("/:id([0-9a-f]{24})/change-password", postChangePassword);
+userRouter
+  .route("/:id([0-9a-f]{24})/change-password")
+  .get(getChangePassword)
+  .post(postChangePassword);
 
 // Upload
-userRouter.get("/:id([0-9a-f]{24})/upload-video", getUploadVideo);
-userRouter.post(
-  "/:id([0-9a-f]{24})/upload-video",
-  uploadVideo.single("videoFile"),
-  postUploadVideo
-);
+userRouter
+  .route("/:id([0-9a-f]{24})/upload-video")
+  .get(getUploadVideo)
+  .post(uploadVideo.single("videoFile"), postUploadVideo);
+
+// Github
+userRouter.get("/github/login", githubLogin);
+userRouter.get("/github/callback", githubCallback);
 
 export default userRouter;

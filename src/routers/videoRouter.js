@@ -12,8 +12,10 @@ const videoRouter = express.Router();
 videoRouter.get("/:id([0-9a-f]{24})", watch);
 
 // Edit
-videoRouter.get("/:id([0-9a-f]{24})/edit-video", getEditVideo);
-videoRouter.post("/:id([0-9a-f]{24})/edit-video", postEditVideo);
+videoRouter
+  .route("/:id([0-9a-f]{24})/edit-video")
+  .get(getEditVideo)
+  .post(postEditVideo);
 
 // Delete
 videoRouter.get("/:id([0-9a-f]{24})/delete-video", deleteVideo);
