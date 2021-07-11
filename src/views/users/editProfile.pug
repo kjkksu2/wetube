@@ -1,11 +1,24 @@
 extends ../base.pug
+include ../mixins/userInfo.pug
 
 block content 
     form(method="POST")
         input(type="text", placeholder="Username", name="username", value=user.username, required)
-        input(type="text", placeholder="Birth", name="birth")
-        input(type="text", placeholder="Gender", name="gender")
-        input(type="text", placeholder="Phone", name="phone")
+        +userInfo({
+            value: user.birth,
+            placeholder: "Birth",
+            name: "birth"
+        })
+        +userInfo({
+            value: user.gender,
+            placeholder: "Gender",
+            name: "gender"
+        })
+        +userInfo({
+            value: user.phone,
+            placeholder: "Phone",
+            name: "phone"
+        })
         input(type="submit", value="Edit")
     br
     a(href=`/users/${user._id}/change-password`) Change Password

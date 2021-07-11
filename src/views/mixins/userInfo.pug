@@ -1,0 +1,5 @@
+mixin userInfo(info)
+    if !info.value
+        input(type="text", placeholder=info.placeholder, name=info.name)
+    else 
+        input(type="text", placeholder=info.placeholder, name=info.name, value=info.value)
