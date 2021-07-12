@@ -95,7 +95,7 @@ export const postEditProfile = async (req, res) => {
   try {
     const {
       params: { id },
-      body: { username, birth, gender, phone },
+      body: { avatarUrl, username, birth, gender, phone },
     } = req;
 
     if (!username) {
@@ -105,6 +105,7 @@ export const postEditProfile = async (req, res) => {
     const user = await User.findByIdAndUpdate(
       id,
       {
+        avatarUrl,
         username,
         birth,
         gender,
@@ -231,12 +232,97 @@ export const githubCallback = async (req, res) => {
       })
     ).json();
 
-    const email = emailData.find(
+    const emailObj = emailData.find(
       (email) => email.primary === true && email.verified === true
     );
-    if (!email) {
-      return res.redierct("/login");
+
+    let user = await User.findOne({
+      email: emailObj.email,
+      socialLogin: "github",
+    });
+    if (!user) {
+      user = await User.create({
+        avatarUrl: userData.avatar_url,
+        socialLogin: "github",
+        username: userData.name,
+        email: emailObj.email,
+      });
     }
+
+    req.session.user = user;
+    req.session.loggedIn = true;
+    return res.redirect("/");
+  } else {
+    return res.redirect("/login");
+  }
+};
+
+// Kakao
+export const kakaoLogin = (req, res) => {
+  const base_url = "https://kauth.kakao.com/oauth/authorize";
+  const config = {
+    client_id: process.env.KAKAO_CLIENT_ID,
+    redirect_uri: "http://localhost:4000/users/kakao/callback",
+    response_type: "code",
+  };
+  const config_url = new URLSearchParams(config).toString();
+  const final_url = `${base_url}?${config_url}`;
+
+  return res.redirect(final_url);
+};
+export const kakaoCallback = async (req, res) => {
+  const base_url = "https://kauth.kakao.com/oauth/token";
+  const config = {
+    grant_type: "authorization_code",
+    client_id: process.env.KAKAO_CLIENT_ID,
+    redirect_uri: "http://localhost:4000/users/kakao/callback",
+    code: req.query.code,
+    client_secret: process.env.KAKAO_CLIENT_SECRET,
+  };
+  const config_url = new URLSearchParams(config).toString();
+  const final_url = `${base_url}?${config_url}`;
+
+  const tokenRequest = await (
+    await fetch(final_url, {
+      method: "POST",
+      headers: {
+        "Content-type": "apllication/json",
+      },
+    })
+  ).json();
+
+  if ("access_token" in tokenRequest) {
+    const { access_token } = tokenRequest;
+
+    const userData = await (
+      await fetch("https://kapi.kakao.com/v2/user/me", {
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+          "Content-type": "application/json",
+        },
+      })
+    ).json();
+
+    const {
+      kakao_account: {
+        profile: { nickname, profile_image_url: avatarUrl },
+        email,
+      },
+    } = userData;
+
+    let user = await User.findOne({ email, socialLogin: "kakao" });
+    if (!user) {
+      user = await User.create({
+        avatarUrl,
+        socialLogin: "kakao",
+        username: nickname,
+        email,
+      });
+    }
+
+    req.session.user = user;
+    req.session.loggedIn = true;
+    return res.redirect("/");
   } else {
     return res.redirect("/login");
   }
