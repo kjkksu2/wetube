@@ -6,4 +6,20 @@ export const middlewareLocals = (req, res, next) => {
   next();
 };
 
+export const privateOnly = (req, res, next) => {
+  if (req.session.loggedIn) {
+    return next();
+  } else {
+    return res.redirect("/");
+  }
+};
+
+export const publicOnly = (req, res, next) => {
+  if (!req.session.loggedIn) {
+    return next();
+  } else {
+    return res.redirect("/");
+  }
+};
+
 export const uploadVideo = multer({ dest: "uploads/videos" });
