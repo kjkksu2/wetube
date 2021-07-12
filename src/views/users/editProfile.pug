@@ -2,7 +2,13 @@ extends ../base.pug
 include ../mixins/userInfo.pug
 
 block content 
+    if user.avatarUrl
+        img(src=user.avatarUrl)
+    else 
+        span 😀
     form(method="POST")
+        label(for="avatar") Avatar
+        input(type="file", id="avatar", name="avatarUrl")
         input(type="text", placeholder="Username", name="username", value=user.username, required)
         +userInfo({
             value: user.birth,
@@ -21,4 +27,5 @@ block content
         })
         input(type="submit", value="Edit")
     br
-    a(href=`/users/${user._id}/change-password`) Change Password
+    if user.socialLogin === "local"
+        a(href=`/users/${user._id}/change-password`) Change Password
