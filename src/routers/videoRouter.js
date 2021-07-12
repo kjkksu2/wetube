@@ -5,6 +5,7 @@ import {
   postEditVideo,
   deleteVideo,
 } from "../controllers/videoController";
+import { privateOnly } from "../middlewares";
 
 const videoRouter = express.Router();
 
@@ -14,10 +15,10 @@ videoRouter.get("/:id([0-9a-f]{24})", watch);
 // Edit
 videoRouter
   .route("/:id([0-9a-f]{24})/edit-video")
-  .get(getEditVideo)
+  .get(privateOnly, getEditVideo)
   .post(postEditVideo);
 
 // Delete
-videoRouter.get("/:id([0-9a-f]{24})/delete-video", deleteVideo);
+videoRouter.get("/:id([0-9a-f]{24})/delete-video", privateOnly, deleteVideo);
 
 export default videoRouter;

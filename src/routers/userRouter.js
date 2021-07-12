@@ -8,31 +8,37 @@ import {
   postChangePassword,
   githubLogin,
   githubCallback,
+  kakaoLogin,
+  kakaoCallback,
 } from "../controllers/userController";
-import { uploadVideo } from "../middlewares";
+import { privateOnly, publicOnly, uploadVideo } from "../middlewares";
 
 const userRouter = express.Router();
 
 // Edit Profile
 userRouter
   .route("/:id([0-9a-f]{24})")
-  .get(getEditProfile)
+  .get(privateOnly, getEditProfile)
   .post(postEditProfile);
 
 // Change Password
 userRouter
   .route("/:id([0-9a-f]{24})/change-password")
-  .get(getChangePassword)
+  .get(privateOnly, getChangePassword)
   .post(postChangePassword);
 
 // Upload
 userRouter
   .route("/:id([0-9a-f]{24})/upload-video")
-  .get(getUploadVideo)
+  .get(privateOnly, getUploadVideo)
   .post(uploadVideo.single("videoFile"), postUploadVideo);
 
 // Github
-userRouter.get("/github/login", githubLogin);
+userRouter.get("/github/login", publicOnly, githubLogin);
 userRouter.get("/github/callback", githubCallback);
+
+// Kakao
+userRouter.get("/kakao/login", publicOnly, kakaoLogin);
+userRouter.get("/kakao/callback", kakaoCallback);
 
 export default userRouter;
