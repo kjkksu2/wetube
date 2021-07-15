@@ -1,18 +1,43 @@
 header 
-    a(href="/")
-        i.fab.fa-youtube
-    br
-    nav
+    div
+        a(href="#").youtube__bar.standard__background--circle
+            i.fas.fa-bars
+        a(href="/").youtube__logo
+            i.fab.fa-youtube
+            span YouTube
+    form(method="GET", action="/search")
+        input(type="text", placeholder="Search by...", name="keyword", required)
+        a(href="#").keyboard__icon
+            i.fas.fa-keyboard
+        button 
+            i.fas.fa-search
+        a(href="#").microphone__icon.standard__background--circle
+            i.fas.fa-microphone
+    nav.user__nav         
         ul
             if !loggedIn
-                li
-                    a(href="/login") Login
-                li
+                li.icon-in-list__background--circle
+                    a(href="#")
+                        i.fas.fa-border-none   
+                li.user__nav--ellipsis.icon-in-list__background--circle
+                    a(href="#")
+                        i.fas.fa-ellipsis-v
+                li.user__nav--login
+                    a(href="/login")
+                        i.fas.fa-user-circle
+                        |Login
+                li.user__nav--join
                     a(href="/join") Join
             else
-                li 
-                    a(href=`/users/${user._id}/upload-video`) Upload Video
-                li
-                    a(href=`/users/${user._id}`) Edit Profile
-                li
-                    a(href="/logout") Logout
+                li.user__nav--uploadVideo.icon-in-list__background--circle
+                    a(href=`/users/${user._id}/upload-video`)
+                        i.fas.fa-video
+                li.user__nav--apps.icon-in-list__background--circle
+                    a(href="#")
+                        i.fas.fa-border-none 
+                li.user__nav--profile
+                    a(href=`/users/${user._id}`)
+                        img(src=user.avatarUrl)
+                li.user__nav--logout.icon-in-list__background--circle
+                    a(href="/logout")
+                        i.fas.fa-sign-out-alt

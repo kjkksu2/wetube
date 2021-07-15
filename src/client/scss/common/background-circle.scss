@@ -1,0 +1,27 @@
+.icon-in-list__background--circle {
+  a {
+    width: 35px;
+    height: 33px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:active {
+      color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+.standard__background--circle {
+  width: 35px;
+  height: 33px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:active {
+    color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}

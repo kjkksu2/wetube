@@ -1,3 +1,21 @@
+// Config
+@import "./config/_reset.scss";
+@import "./config/_variables.scss";
+
+// Partials
+@import "./partials/header.scss";
+
+// Common
+@import "./common/background-circle.scss";
+
+a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.5);
+  &:active {
+    color: $blue;
+  }
+}
+
 body {
-  background-color: bisque;
+  font-family: Roboto, Arial, sans-serif;
 }

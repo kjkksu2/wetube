@@ -1,0 +1,143 @@
+header {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+  div {
+    display: flex;
+    align-items: center;
+    .youtube__bar {
+      font-size: 19px;
+      color: rgba(0, 0, 0, 0.6);
+    }
+    .youtube__logo {
+      margin-left: 20px;
+      font-size: 25px;
+      font-weight: 600;
+      i {
+        font-size: 26px;
+        color: $red;
+        margin-right: 1px;
+      }
+      span {
+        color: black;
+        letter-spacing: -4.5px;
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    width: 50%;
+    input,
+    button {
+      border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    input {
+      &:first-child {
+        width: 100%;
+        padding: 4px 6px;
+        font-size: 20px;
+        &::placeholder {
+          color: rgba(0, 0, 0, 0.5);
+        }
+        &:focus {
+          outline-color: $blue;
+        }
+      }
+    }
+
+    .keyboard__icon {
+      position: relative;
+      i {
+        position: absolute;
+        left: -30px;
+        bottom: 7px;
+      }
+      &:active {
+        color: black;
+      }
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 0 25px;
+      color: rgba(0, 0, 0, 0.5);
+      &:hover {
+        color: rgba(0, 0, 0, 0.7);
+        border: 1px solid rgba(0, 0, 0, 0.7);
+      }
+    }
+
+    .microphone__icon {
+      margin-left: 5px;
+      font-size: $bg_circle;
+    }
+  }
+
+  .user__nav {
+    display: flex;
+    font-size: $bg_circle;
+
+    ul {
+      display: flex;
+      align-items: center;
+      .user__nav--ellipsis {
+        margin: 0px 10px;
+      }
+      .user__nav--login,
+      .user__nav--join {
+        font-size: 21px;
+        border: 1.5px solid $blue;
+        padding: 6px 9px;
+        &:first-child {
+          margin-right: 10px;
+        }
+        a {
+          color: $blue;
+          i {
+            margin-right: 7px;
+          }
+        }
+      }
+      .user__nav--join {
+        margin-left: 10px;
+      }
+
+      .user__nav--uploadVideo,
+      .user__nav--profile,
+      .user__nav--logout {
+        a {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      .user__nav--profile {
+        a {
+          img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      .user__nav--uploadVideo,
+      .user__nav--apps,
+      .user__nav--logout {
+        margin-left: 10px;
+      }
+
+      .user__nav--profile {
+        margin-left: 13px;
+      }
+    }
+  }
+}
