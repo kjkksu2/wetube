@@ -4,7 +4,8 @@
   "description": "Clone youtube",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/init.js --delay 2s"
+    "dev:server": "nodemon --exec babel-node src/init.js --delay 2s",
+    "dev:assets": "webpack"
   },
   "repository": {
     "type": "git",
