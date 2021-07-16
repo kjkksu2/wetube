@@ -4,10 +4,13 @@
 
 // Partials
 @import "./partials/header.scss";
-@import "./partials/hidden.scss";
+@import "./partials/videoChoice.scss";
 
 // Common
 @import "./common/background-circle.scss";
+
+// Users
+@import "./users/uploadVideo.scss";
 
 a {
   text-decoration: none;

@@ -1,0 +1,114 @@
+div {
+  display: flex;
+  .userContainer {
+    .userInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 30px 0px;
+      padding: 0px 70px;
+      img {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+      }
+      span {
+        &:last-child {
+          margin-top: 10px;
+          color: $standard_color;
+        }
+      }
+    }
+    .userChoice {
+      font-size: 20px;
+      color: rgba(0, 0, 0, 0.7);
+      li {
+        padding: 10px 0px;
+        padding-left: 20px;
+        i {
+          margin-right: 20px;
+        }
+        .fa-chalkboard {
+          margin-right: 18px;
+        }
+        &:nth-child(2) {
+          padding-left: 22px;
+        }
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+  .videoContainer {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0px;
+    padding-left: 20px;
+    .videoContainer__title {
+      font-size: 30px;
+      padding-bottom: 30px;
+    }
+
+    .videoContainer__content {
+      .video__upload {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        padding: 70px;
+
+        outline-offset: -12px;
+        outline: 2px dashed rgba(0, 0, 0, 0.2);
+        form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .fa-caret-square-up {
+            font-size: 100px;
+            text-align: center;
+            opacity: 0.5;
+            margin-bottom: 50px;
+          }
+          & > span:nth-child(2) {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 30px;
+          }
+          label {
+            width: 20%;
+            background-color: $blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            padding: 10px;
+            color: white;
+            margin-bottom: 30px;
+            &.selected {
+              background-color: tomato;
+            }
+          }
+          input[type="file"] {
+            display: none;
+          }
+          input {
+            margin-top: 10px;
+            font-size: 20px;
+            &:focus {
+              outline-color: $blue;
+            }
+          }
+        }
+      }
+      .video__analysis {
+        font-weight: 700;
+      }
+      .video__settings {
+        font-weight: 700;
+      }
+    }
+  }
+}

@@ -1,9 +1,37 @@
 extends ../base.pug
 
 block content 
-    form(method="POST", enctype="multipart/form-data")
-        label(for="videoFile") Video
-        input(type="file", id="videoFile", name="videoFile", accept="video/*")
-        input(type="text", name="title", placeholder="Title", required)
-        input(type="text", name="description", placeholder="Description")
-        input(type="submit", value="Upload")
+    div
+        section.userContainer
+            div.userInfo
+                img(src=user.avatarUrl)
+                span My Channel 
+                span=user.username
+            ul.userChoice
+                li 
+                    i.fas.fa-chalkboard
+                    span dashboard 
+                li 
+                    i.fas.fa-play-circle
+                    span content 
+                li 
+                    i.fab.fa-playstation
+                    span playList
+        section.videoContainer
+            h2.videoContainer__title 
+                span Channel [choice]
+            div.videoContainer__content
+                div.video__upload
+                    form(method="POST", enctype="multipart/form-data")
+                        i.fas.fa-caret-square-up
+                        span Please upload your video.
+                        label(for="videoFile") select
+                        span#videoTitle
+                        input(type="file", id="videoFile", name="videoFile", accept="video/*")
+                        input(type="text", name="title", placeholder="Title", required)
+                        input(type="text", name="description", placeholder="Description")
+                        input(type="submit", value="Upload")
+                div.video__analysis
+                    h3 hi
+                div.video__settings
+                    h3 hello
