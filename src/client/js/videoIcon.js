@@ -6,4 +6,6 @@ const handleVideoIcon = () => {
   videoChoice.classList.toggle(hiddenClass);
 };
 
-videoIcon.addEventListener("click", handleVideoIcon);
+if (videoIcon) {
+  videoIcon.addEventListener("click", handleVideoIcon);
+}

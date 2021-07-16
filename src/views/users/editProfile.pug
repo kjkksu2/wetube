@@ -3,12 +3,12 @@ include ../mixins/userInfo.pug
 
 block content 
     if user.avatarUrl
-        img(src=user.avatarUrl)
+        include ../partials/showAvatar.pug
     else 
         span 😀
-    form(method="POST")
+    form(method="POST", enctype="multipart/form-data")
         label(for="avatar") Avatar
-        input(type="file", id="avatar", name="avatarUrl")
+        input(type="file", id="avatar", name="avatarUrl", accept="image/*")
         input(type="text", placeholder="Username", name="username", value=user.username, required)
         +userInfo({
             value: user.birth,

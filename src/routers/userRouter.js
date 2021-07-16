@@ -11,7 +11,12 @@ import {
   kakaoLogin,
   kakaoCallback,
 } from "../controllers/userController";
-import { privateOnly, publicOnly, uploadVideo } from "../middlewares";
+import {
+  privateOnly,
+  publicOnly,
+  uploadAvatar,
+  uploadVideo,
+} from "../middlewares";
 
 const userRouter = express.Router();
 
@@ -19,7 +24,7 @@ const userRouter = express.Router();
 userRouter
   .route("/:id([0-9a-f]{24})")
   .get(privateOnly, getEditProfile)
-  .post(postEditProfile);
+  .post(uploadAvatar.single("avatarUrl"), postEditProfile);
 
 // Change Password
 userRouter

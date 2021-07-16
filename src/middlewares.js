@@ -23,3 +23,4 @@ export const publicOnly = (req, res, next) => {
 };
 
 export const uploadVideo = multer({ dest: "uploads/videos" });
+export const uploadAvatar = multer({ dest: "uploads/avatars" });

@@ -95,7 +95,8 @@ export const postEditProfile = async (req, res) => {
   try {
     const {
       params: { id },
-      body: { avatarUrl, username, birth, gender, phone },
+      body: { username, birth, gender, phone },
+      file,
     } = req;
 
     if (!username) {
@@ -105,7 +106,7 @@ export const postEditProfile = async (req, res) => {
     const user = await User.findByIdAndUpdate(
       id,
       {
-        avatarUrl,
+        avatarUrl: file ? file.path : req.session.user.avatarUrl,
         username,
         birth,
         gender,

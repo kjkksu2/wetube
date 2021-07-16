@@ -37,7 +37,7 @@ header
                         i.fas.fa-border-none 
                 li.user__nav--profile
                     a(href=`/users/${user._id}`)
-                        img(src=user.avatarUrl)
+                        include ../partials/showAvatar.pug
                 li.user__nav--logout.icon-in-list__background--circle
                     a(href="/logout")
                         i.fas.fa-sign-out-alt

@@ -1,0 +1,4 @@
+if user.avatarUrl.startsWith("https")
+    img(src=user.avatarUrl)
+else
+    img(src=`/${user.avatarUrl}`)
