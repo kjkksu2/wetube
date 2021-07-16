@@ -4,13 +4,14 @@
 
 // Partials
 @import "./partials/header.scss";
+@import "./partials/hidden.scss";
 
 // Common
 @import "./common/background-circle.scss";
 
 a {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.5);
+  color: $standard_color;
   &:active {
     color: $blue;
   }

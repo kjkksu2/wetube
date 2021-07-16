@@ -51,7 +51,7 @@ header {
         padding: 4px 6px;
         font-size: 20px;
         &::placeholder {
-          color: rgba(0, 0, 0, 0.5);
+          color: $standard_color;
         }
         &:focus {
           outline-color: $blue;
@@ -141,11 +141,11 @@ header {
       .user__nav--uploadVideo,
       .user__nav--apps,
       .user__nav--logout {
-        margin-left: 10px;
+        margin-left: 17px;
       }
 
       .user__nav--profile {
-        margin-left: 13px;
+        margin-left: 20px;
       }
     }
   }

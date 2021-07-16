@@ -1,6 +1,6 @@
 header 
     div
-        a(href="#").youtube__bar.standard__background--circle
+        li.youtube__bar.standard__background--circle
             i.fas.fa-bars
         a(href="/").youtube__logo
             i.fab.fa-youtube
@@ -12,7 +12,7 @@ header
             i.fas.fa-keyboard
         button 
             i.fas.fa-search
-        a(href="#").microphone__icon.standard__background--circle
+        li.microphone__icon.standard__background--circle
             i.fas.fa-microphone
     nav.user__nav         
         ul
@@ -30,9 +30,8 @@ header
                 li.user__nav--join
                     a(href="/join") Join
             else
-                li.user__nav--uploadVideo.icon-in-list__background--circle
-                    a(href=`/users/${user._id}/upload-video`)
-                        i.fas.fa-video
+                li.user__nav--uploadVideo.standard__background--circle
+                    i.fas.fa-video
                 li.user__nav--apps.icon-in-list__background--circle
                     a(href="#")
                         i.fas.fa-border-none 
@@ -42,3 +41,4 @@ header
                 li.user__nav--logout.icon-in-list__background--circle
                     a(href="/logout")
                         i.fas.fa-sign-out-alt
+            
