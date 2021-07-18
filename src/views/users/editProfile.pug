@@ -2,32 +2,41 @@ extends ../base.pug
 include ../mixins/userInfo.pug
 
 block content
-    div.userAvatar
-        if user.avatarUrl
-            include ../partials/showAvatar.pug
-        else 
-            span 😀
-    div.userProfile
-        form(method="POST", enctype="multipart/form-data").userProfile__form
-            label(for="avatar") Avatar
-            input(type="file", id="avatar", name="avatarUrl", accept="image/*")
-            input(type="text", placeholder="Username", name="username", value=user.username, required)
-            +userInfo({
-                value: user.birth,
-                placeholder: "Birth",
-                name: "birth"
-            })
-            +userInfo({
-                value: user.gender,
-                placeholder: "Gender",
-                name: "gender"
-            })
-            +userInfo({
-                value: user.phone,
-                placeholder: "Phone",
-                name: "phone"
-            })
-            input(type="submit", value="Edit")
-        br
-        if user.socialLogin === "local"
-            a(href=`/users/${user._id}/change-password`) Change Password
+    div.userInfo
+        div.userInfo-block
+            div.userAvatar
+                if user.avatarUrl
+                    span Photo
+                    include ../partials/showAvatar.pug
+                else 
+                    span 😀
+            div.userProfile
+                form(method="POST", enctype="multipart/form-data").userProfile__form
+                    div.userProfile__avatar
+                        label(for="avatar") Avatar
+                        input(type="file", id="avatar", name="avatarUrl", accept="image/*")
+                    div.userProfile__name
+                        label(for="name") Name
+                        input(type="text", id="name", placeholder="Username", name="username", value=user.username, required)
+                    div.userProfile__birth
+                        +userInfo({
+                            value: user.birth,
+                            placeholder: "Birth",
+                            name: "birth"
+                        })
+                    div.userProfile__gender
+                        +userInfo({
+                            value: user.gender,
+                            placeholder: "Gender",
+                            name: "gender"
+                        })
+                    div.userProfile__phone
+                        +userInfo({
+                            value: user.phone,
+                            placeholder: "Phone",
+                            name: "phone"
+                        })
+                    input(type="submit", value="Edit")
+                br
+                if user.socialLogin === "local"
+                    a(href=`/users/${user._id}/change-password`) Change Password
