@@ -1,0 +1,23 @@
+extends /src/views/base.pug
+
+block content 
+    div
+        section.userContainer
+            div.userInfo
+                include ../partials/showAvatar.pug
+                span My Channel 
+                span=user.username
+            ul.userChoice
+                li 
+                    i.fas.fa-chalkboard
+                    a(href="#")
+                        span dashboard 
+                li 
+                    i.fas.fa-play-circle
+                    a(href="#")
+                        span content 
+                li 
+                    i.fab.fa-playstation
+                    a(href="#")
+                        span playList
+        block dashboard

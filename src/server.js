@@ -12,6 +12,7 @@ const app = express();
 
 app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
+app.locals.basedir = process.cwd();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
