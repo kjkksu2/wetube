@@ -2,5 +2,6 @@
 import "../scss/style.scss";
 
 // JS
-import "./videoIcon.js";
+import "./headerIcons/videoIcon.js";
+import "./headerIcons/userProfileIcon.js";
 import "./uploadVideo.js";
