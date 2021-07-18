@@ -11,6 +11,8 @@
 
 // Users
 @import "./users/uploadVideo.scss";
+@import "./users/login.scss";
+@import "./users/join.scss";
 
 a {
   text-decoration: none;
@@ -22,4 +24,8 @@ a {
 
 body {
   font-family: Roboto, Arial, sans-serif;
+  height: 100vh;
+  main {
+    height: 100%;
+  }
 }
