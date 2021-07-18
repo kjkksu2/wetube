@@ -1,0 +1,59 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  .fa-youtube {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+  span {
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+  }
+
+  .login__form {
+    width: 20%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    .fa-user-circle {
+      text-align: center;
+      font-size: 100px;
+      opacity: 0.4;
+      margin-bottom: 50px;
+    }
+
+    input:not([type="submit"]) {
+      border-color: rgba(0, 0, 0, 0.1);
+      font-size: 20px;
+      margin-bottom: 5px;
+      padding: 7px 5px;
+      &:focus {
+        outline-color: $blue;
+      }
+    }
+    input[type="submit"] {
+      border: none;
+      background-color: #4b8bfe;
+      font-size: 16px;
+      padding: 7px 0px;
+      border-radius: 5px;
+      color: white;
+    }
+
+    a {
+      margin-top: 15px;
+      font-size: 17px;
+      i {
+        margin-right: 6px;
+      }
+    }
+  }
+}

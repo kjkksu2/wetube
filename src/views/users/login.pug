@@ -2,14 +2,17 @@ extends ../base.pug
 
 block content 
     include ../partials/errorMessage
-    form(method="POST")
-        input(type="email", name="email", placeholder="Email", required)
-        input(type="password", name="password", placeholder="Password", required)
-        input(type="submit", value="Login")
-    a(href="/users/github/login")
-        i.fab.fa-github
-        |Continue with github
-    br
-    a(href="/users/kakao/login")
-        i.fas.fa-comment
-        |Continue with kakao
+    div.login
+        i.fab.fa-youtube
+        span Log in with a local account
+        form(method="POST").login__form
+            i.fas.fa-user-circle
+            input(type="email", name="email", placeholder="Email", required)
+            input(type="password", name="password", placeholder="Password", required)
+            input(type="submit", value="Login")
+            a(href="/users/github/login")
+                i.fab.fa-github
+                |Continue with github
+            a(href="/users/kakao/login")
+                i.fas.fa-comment
+                |Continue with kakao
