@@ -1,0 +1,12 @@
+div.userProfileIcon.hidden
+    if user
+        div.userProfileIcon__avatar
+            include ./showAvatar.pug
+        div.userProfileIcon__info
+            span=user.username
+            span=user.email 
+            div.userProfileIcon__info--choice
+                a(href=`/users/${user._id}`) profile 
+                // 본인이 올린 video
+                a(href="#") video
+                a(href="/logout") logout 

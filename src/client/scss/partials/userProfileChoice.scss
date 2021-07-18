@@ -1,0 +1,48 @@
+.userProfileIcon {
+  position: absolute;
+  right: 20px;
+  top: 54px;
+  display: flex;
+  padding: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  border-top-right-radius: 0;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+
+  &.hidden {
+    display: none;
+  }
+
+  .userProfileIcon__avatar {
+    img {
+      width: 90px;
+      height: 90px;
+    }
+  }
+  .userProfileIcon__info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    span {
+      &:first-child {
+        font-weight: 600;
+        margin-bottom: 7px;
+      }
+      &:nth-child(2) {
+        font-size: 13px;
+        color: rgba(0, 0, 0, 0.5);
+        margin-bottom: 25px;
+      }
+    }
+    .userProfileIcon__info--choice {
+      a {
+        padding: 0px 5px;
+        font-weight: 600;
+        &:nth-child(2) {
+          border-left: 1px solid black;
+          border-right: 1px solid black;
+        }
+      }
+    }
+  }
+}
