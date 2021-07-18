@@ -1,6 +1,6 @@
 const bodyClick = document.querySelector("body");
 const userProfileIcon = document.querySelector(".user__nav--profile");
-const userProfileContent = document.querySelector(".userProfile");
+const userProfileContent = document.querySelector(".userProfileIcon");
 
 const HIDDEN_CLASS = "hidden";
 
