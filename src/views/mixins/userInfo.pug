@@ -1,7 +1,7 @@
 mixin userInfo(info)
     if !info.value
-        label(for=info.name)=info.placeholder
+        span(for=info.name)=info.placeholder
         input(type="text", id=info.name, placeholder=info.placeholder, name=info.name)
     else 
-        label(for=info.name)=info.placeholder
+        span(for=info.name)=info.placeholder
         input(type="text", id=info.name, placeholder=info.placeholder, name=info.name, value=info.value)
