@@ -167,7 +167,7 @@ export const postChangePassword = async (req, res) => {
 
 // Upload Video
 export const getUploadVideo = (req, res) => {
-  return res.render("users/uploadVideo/dashboard", {
+  return res.render("users/dashboard", {
     pageTitle: "Upload Video",
   });
 };
