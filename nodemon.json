@@ -1,0 +1,5 @@
+{
+  "exec": "babel-node src/init.js",
+  "delay": "2s",
+  "ignore": "src/client/*"
+}
