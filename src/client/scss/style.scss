@@ -30,4 +30,7 @@ body {
   main {
     height: 100%;
   }
+  &.hideScroll {
+    overflow: hidden;
+  }
 }
