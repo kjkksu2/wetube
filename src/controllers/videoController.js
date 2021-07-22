@@ -3,7 +3,7 @@ import Video from "../models/Video";
 
 // Home
 export const home = async (req, res) => {
-  const videos = await Video.find().sort({ createdAt: -1 });
+  const videos = await Video.find().sort({ createdAt: -1 }).populate("user");
   return res.render("videos/home", { pageTitle: "Home", videos });
 };
 

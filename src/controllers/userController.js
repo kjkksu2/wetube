@@ -181,7 +181,12 @@ export const postUploadVideo = async (req, res) => {
     fileUrl: path,
     title,
     description,
+    user: req.session.user._id,
   });
+
+  const user = await User.findById(req.session.user._id);
+  user.videos.push(video._id);
+  await user.save();
 
   return res.redirect("/");
 };
