@@ -4,10 +4,10 @@ mixin video(info)
             video(src=info.fileUrl) 
             div.video__userInfo
                 div.video__userInfo--avatar
-                    img(src=info.user.avatarUrl)
+                    img(src=info.owner.avatarUrl)
                 div.video__userInfo--content
                     h3.video__userInfo--title=info.title 
-                    h3=info.user.username
+                    h3=info.owner.username
                     div
                         h4.video__userInfo--views 조회수 #{info.views}회
                         h4.video__userInfo--dot •   

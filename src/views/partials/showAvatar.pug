@@ -1,4 +1,4 @@
-if user.avatarUrl.startsWith("https")
-    img(src=user.avatarUrl)
+if loggedUser.avatarUrl.startsWith("https")
+    img(src=loggedUser.avatarUrl)
 else
-    img(src=`/${user.avatarUrl}`)
+    img(src=`/${loggedUser.avatarUrl}`)

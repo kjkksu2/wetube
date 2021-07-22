@@ -1,6 +1,6 @@
 div.video__choice.hidden
-    if user
-        a(href=`/users/${user._id}/upload-video`) 
+    if loggedUser
+        a(href=`/users/${loggedUser._id}/upload-video`) 
             i.fab.fa-youtube-square
             span upload video
         a(href="#") 

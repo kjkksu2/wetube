@@ -4,35 +4,38 @@ include ../mixins/userInfo.pug
 block content
     div.userInfo
         div.userInfo-block
-            div.userProfile
-                form(method="POST", enctype="multipart/form-data").userProfile__form
-                    div.userProfile__avatar
-                        span Photo
-                        label(for="avatar")
-                            include ../partials/showAvatar.pug
-                        input(type="file", id="avatar", name="avatarUrl", accept="image/*")
-                    div.userProfile__name
-                        span(for="name") Name
-                        input(type="text", id="name", placeholder="Username", name="username", value=user.username, required)
-                    div.userProfile__birth
-                        +userInfo({
-                            value: user.birth,
-                            placeholder: "Birth",
-                            name: "birth"
-                        })
-                    div.userProfile__gender
-                        +userInfo({
-                            value: user.gender,
-                            placeholder: "Gender",
-                            name: "gender"
-                        })
-                    div.userProfile__phone
-                        +userInfo({
-                            value: user.phone,
-                            placeholder: "Phone",
-                            name: "phone"
-                        })
+            div.userInfo-header 
+                i.fas.fa-user-edit
+                span Profile
+            form(method="POST", enctype="multipart/form-data").userInfo-form
+                div.userInfo-form__avatar
+                    span Photo
+                    label(for="avatar")
+                        include ../partials/showAvatar.pug
+                    input(type="file", id="avatar", name="avatarUrl", accept="image/*")
+                div.userInfo-form__name
+                    span(for="name") Name
+                    input(type="text", id="name", placeholder="Username", name="username", value=loggedUser.username, required)
+                div.userInfo-form__birth
+                    +userInfo({
+                        value: loggedUser.birth,
+                        placeholder: "Birth",
+                        name: "birth"
+                    })
+                div.userInfo-form__gender
+                    +userInfo({
+                        value: loggedUser.gender,
+                        placeholder: "Gender",
+                        name: "gender"
+                    })
+                div.userInfo-form__phone
+                    +userInfo({
+                        value: loggedUser.phone,
+                        placeholder: "Phone",
+                        name: "phone"
+                    })
+                div.userInfo-form__submit
                     input(type="submit", value="Edit")
-                br
-                if user.socialLogin === "local"
-                    a(href=`/users/${user._id}/change-password`) Change Password
+            br
+            if loggedUser.socialLogin === "local"
+                a(href=`/users/${loggedUser._id}/change-password`) Change Password

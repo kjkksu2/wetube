@@ -1,12 +1,19 @@
 extends ../base.pug
 
 block content 
-    video(src="/" + video.fileUrl, controls=true)
-    a(href=video._id + "/edit-video") Edit Video &rarr;
-    br
-    a(href=video._id + "/delete-video") Delete Video &rarr;
-    div 
-        h3=video.title 
-        h4=video.description
-        h4 #{video.views}회
-        h4=video.createdAt
+    div.video-watch
+        div.video-watch__screen
+            video(src="/" + video.fileUrl, controls=true)
+        if loggedUser._id === video.owner.id
+            div.video-watch__choice
+                a(href=video._id + "/edit-video") Edit Video &rarr;
+                a(href=video._id + "/delete-video") Delete Video &rarr;
+        div.video-watch__content
+            h3.video-watch__content--title=video.title 
+            div
+                h4.video-watch__content--views 조회수 #{video.views}회
+                h4.video-watch__content--dot •  
+                h4.video-watch__content--createTime #{video.createdAt.toLocaleDateString("kr", {year: "numeric", month:"long", day:"numeric"})}
+        div.video-watch__owner
+            img(src=`/${video.owner.avatarUrl}`)
+            h4=video.owner.username

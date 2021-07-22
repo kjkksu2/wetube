@@ -1,7 +1,17 @@
 extends ../base.pug
 
 block content 
-    form(method="POST")
-        input(type="text", name="title", value=video.title, required)
-        input(type="text", name="description", value=video.description, required)
-        input(type="submit", value="Edit video")
+    div.editVideo-container
+        div.editVideo-block
+            div.editVideo-header 
+                i.fas.fa-edit
+                span Video
+            form(method="POST").editVideo-form
+                div.editVideo-form__title
+                    span Title
+                    input(type="text", name="title", value=video.title, required)
+                div.editVideo-form__description
+                    span Description
+                    input(type="text", name="description", value=video.description)
+                div.editVideo-form__submit
+                    input(type="submit", value="Edit")

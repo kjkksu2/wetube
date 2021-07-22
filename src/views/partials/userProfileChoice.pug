@@ -1,12 +1,12 @@
 div.userProfileIcon.hidden
-    if user
+    if loggedUser
         div.userProfileIcon__avatar
             include ./showAvatar.pug
         div.userProfileIcon__info
-            span=user.username
-            span=user.email 
+            span=loggedUser.username
+            span=loggedUser.email 
             div.userProfileIcon__info--choice
-                a(href=`/users/${user._id}`) profile 
+                a(href=`/users/${loggedUser._id}`) profile 
                 // 본인이 올린 video
                 a(href="#") video
                 a(href="/logout") logout 
