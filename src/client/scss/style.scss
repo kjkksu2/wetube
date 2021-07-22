@@ -11,10 +11,14 @@
 @import "./common/background-circle.scss";
 
 // Users
-@import "./users/uploadVideo.scss";
+@import "./users/uploadVideoBase.scss";
+@import "./users/dashboard.scss";
 @import "./users/login.scss";
 @import "./users/join.scss";
 @import "./users/editProfile.scss";
+
+// Videos
+@import "./videos/home.scss";
 
 a {
   text-decoration: none;
