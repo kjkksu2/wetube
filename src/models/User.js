@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
   phone: String,
   password: { type: String },
   createdAt: { type: Date, default: Date.now },
+  videos: [{ type: mongoose.Schema.Types.ObjectId, ref: "Video" }],
 });
 
 userSchema.pre("save", async function () {
