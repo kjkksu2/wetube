@@ -2,7 +2,7 @@ import multer from "multer";
 
 export const middlewareLocals = (req, res, next) => {
   res.locals.loggedIn = req.session.loggedIn;
-  res.locals.user = req.session.user;
+  res.locals.loggedUser = req.session.user;
   next();
 };
 
