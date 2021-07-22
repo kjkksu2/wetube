@@ -5,3 +5,4 @@ import "../scss/style.scss";
 import "./headerIcons/videoIcon.js";
 import "./headerIcons/userProfileIcon.js";
 import "./uploadVideo.js";
+import "./editProfile.js";
