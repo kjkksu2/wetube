@@ -1,8 +1,14 @@
 mixin video(info)
-    a(href=`/videos/${info._id}`)
-        video(src=info.fileUrl) 
-    div 
-        h3=info.title 
-        h4=info.description
-        h4 #{info.views}회
-        h4=info.createdAt
+    div.video
+        a(href=`/videos/${info._id}`)
+            video(src=info.fileUrl) 
+            div.video__userInfo
+                div.video__userInfo--avatar
+                    img(src=info.user.avatarUrl)
+                div.video__userInfo--content
+                    h3.video__userInfo--title=info.title 
+                    h3=info.user.username
+                    div
+                        h4.video__userInfo--views 조회수 #{info.views}회
+                        h4.video__userInfo--dot •   
+                        h4.video__userInfo--createTime #{info.createdAt.toLocaleDateString("kr", {year: "numeric", month:"long", day:"numeric"})}

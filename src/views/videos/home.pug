@@ -2,7 +2,8 @@ extends ../base.pug
 include ../mixins/video.pug
 
 block content 
-    each potato in videos 
-        +video(potato)
-    else 
-        span No videos found
+    div.video-grid
+        each potato in videos 
+            +video(potato)
+        else 
+            span No videos found
