@@ -1,0 +1,49 @@
+.uploadVideoBase__container {
+  display: flex;
+  .userContainer {
+    .userInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 40%;
+      padding: 0px 70px;
+      padding-top: 35px;
+      img {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        pointer-events: none;
+      }
+      span {
+        &:last-child {
+          margin-top: 10px;
+          color: $standard_color;
+        }
+      }
+    }
+    .userChoice {
+      font-size: 20px;
+      color: rgba(0, 0, 0, 0.7);
+      li {
+        padding: 10px 0px;
+        padding-left: 20px;
+        i {
+          margin-right: 20px;
+        }
+        .fa-chalkboard {
+          margin-right: 18px;
+        }
+        &:nth-child(2) {
+          padding-left: 22px;
+        }
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+        a {
+          color: rgba(0, 0, 0, 0.7);
+        }
+      }
+    }
+  }
+}
