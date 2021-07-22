@@ -1,5 +1,5 @@
 .userProfileIcon {
-  position: absolute;
+  position: fixed;
   right: 20px;
   top: 54px;
   display: flex;
@@ -9,7 +9,6 @@
   border-top-right-radius: 0;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
   background-color: white;
-  z-index: 1;
 
   &.hidden {
     display: none;

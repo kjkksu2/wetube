@@ -19,5 +19,5 @@ const handleProfile = (event) => {
 };
 
 if (userProfileIcon) {
-  body.addEventListener("click", handleProfile);
+  userProfileIcon.addEventListener("click", handleProfile);
 }
