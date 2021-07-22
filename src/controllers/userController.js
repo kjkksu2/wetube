@@ -29,6 +29,8 @@ export const postJoin = async (req, res) => {
     }
 
     const user = await User.create({
+      avatarUrl:
+        "https://cdn.icon-icons.com/icons2/2406/PNG/512/user_account_icon_145918.png",
       username,
       email,
       birth,
@@ -181,7 +183,7 @@ export const postUploadVideo = async (req, res) => {
     fileUrl: path,
     title,
     description,
-    user: req.session.user._id,
+    owner: req.session.user._id,
   });
 
   const user = await User.findById(req.session.user._id);

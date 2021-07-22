@@ -3,7 +3,7 @@ import Video from "../models/Video";
 
 // Home
 export const home = async (req, res) => {
-  const videos = await Video.find().sort({ createdAt: -1 }).populate("user");
+  const videos = await Video.find().sort({ createdAt: -1 }).populate("owner");
   return res.render("videos/home", { pageTitle: "Home", videos });
 };
 
@@ -23,7 +23,7 @@ export const watch = async (req, res) => {
   const {
     params: { id },
   } = req;
-  const video = await Video.findById(id);
+  const video = await Video.findById(id).populate("owner");
   return res.render("videos/watch", { pageTitle: video.title, video });
 };
 
