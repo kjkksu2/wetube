@@ -27,12 +27,12 @@
     span {
       &:first-child {
         font-weight: 600;
-        margin-bottom: 7px;
+        padding-bottom: 7px;
       }
       &:nth-child(2) {
         font-size: 13px;
         color: rgba(0, 0, 0, 0.5);
-        margin-bottom: 25px;
+        padding-bottom: 25px;
       }
     }
     .userProfileIcon__info--choice {
