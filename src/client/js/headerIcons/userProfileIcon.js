@@ -6,12 +6,21 @@ const HIDDEN_CLASS = "hidden";
 const SCROLL_CLASS = "hideScroll";
 
 const handleProfile = (event) => {
-  if (!userProfileContent.classList.contains(HIDDEN_CLASS)) {
+  const {
+    target: { localName, parentElement },
+  } = event;
+
+  if (
+    !userProfileContent.classList.contains(HIDDEN_CLASS) &&
+    event.target.className != "userProfileIcon" &&
+    parentElement.parentElement.className != "userProfileIcon"
+  ) {
     userProfileContent.classList.add(HIDDEN_CLASS);
     body.classList.remove(SCROLL_CLASS);
   } else if (
     userProfileContent.classList.contains(HIDDEN_CLASS) &&
-    event.target.localName == "img"
+    localName == "img" &&
+    parentElement.className == "user__nav--profile"
   ) {
     userProfileContent.classList.remove(HIDDEN_CLASS);
     body.classList.add(SCROLL_CLASS);
@@ -19,5 +28,5 @@ const handleProfile = (event) => {
 };
 
 if (userProfileIcon) {
-  userProfileIcon.addEventListener("click", handleProfile);
+  body.addEventListener("click", handleProfile);
 }
