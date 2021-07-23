@@ -39,7 +39,7 @@
         }
       }
 
-      & > div:not(.userInfo-form__submit) {
+      & > div:not(.userInfo-form__last-row) {
         display: flex;
         align-items: center;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -61,18 +61,33 @@
           }
         }
       }
-      .userInfo-form__submit {
-        border: none;
+      .userInfo-form__last-row {
         display: flex;
         justify-content: flex-end;
-        input {
-          cursor: pointer;
-          font-weight: 600;
-          padding: 10px 20px;
-          background-color: $blue;
-          color: white;
-          border-radius: 10px;
+        .userInfo-form__submit,
+        .userInfo-form__changePassword {
           border: none;
+          display: flex;
+          align-items: center;
+          input,
+          a {
+            cursor: pointer;
+            font-weight: 600;
+            padding: 10px 20px;
+            background-color: $blue;
+            color: white;
+            border-radius: 10px;
+            border: none;
+          }
+        }
+        .userInfo-form__submit {
+          order: 1;
+          margin-left: 10px;
+        }
+        .userInfo-form__changePassword {
+          a {
+            font-size: 15px;
+          }
         }
       }
     }

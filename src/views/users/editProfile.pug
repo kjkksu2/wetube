@@ -34,8 +34,9 @@ block content
                         placeholder: "Phone",
                         name: "phone"
                     })
-                div.userInfo-form__submit
-                    input(type="submit", value="Edit")
-            br
-            if loggedUser.socialLogin === "local"
-                a(href=`/users/${loggedUser._id}/change-password`) Change Password
+                div.userInfo-form__last-row
+                    div.userInfo-form__submit
+                        input(type="submit", value="Edit")
+                    div.userInfo-form__changePassword
+                        if loggedUser.socialLogin === "local"
+                            a(href=`/users/${loggedUser._id}/change-password`) Change Password
