@@ -6,6 +6,7 @@
 @import "./partials/header.scss";
 @import "./partials/videoChoice.scss";
 @import "./partials/userProfileChoice.scss";
+@import "./partials/errorMessage.scss";
 
 // Common
 @import "./common/background-circle.scss";
@@ -17,11 +18,13 @@
 @import "./users/join.scss";
 @import "./users/editProfile.scss";
 @import "./users/changePassword.scss";
+@import "./users/videoProfile.scss";
 
 // Videos
 @import "./videos/home.scss";
 @import "./videos/watch.scss";
 @import "./videos/editVideo.scss";
+@import "./videos/search.scss";
 
 a {
   text-decoration: none;
