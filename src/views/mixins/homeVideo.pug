@@ -1,0 +1,17 @@
+mixin video(info)
+    div.homeVideo
+        a(href=`/videos/${info._id}`)
+            video(src=`/${info.fileUrl}`) 
+            div.homeVideo__userInfo
+                div.homeVideo__userInfo--avatar
+                    if info.owner.avatarUrl.startsWith("https")
+                        img(src=info.owner.avatarUrl)
+                    else
+                        img(src=`/${info.owner.avatarUrl}`)
+                div.homeVideo__userInfo--content
+                    h3.homeVideo__userInfo--title=info.title 
+                    h3=info.owner.username
+                    div
+                        h4.homeVideo__userInfo--views 조회수 #{info.views}회
+                        h4.homeVideo__userInfo--dot •   
+                        h4.homeVideo__userInfo--createTime #{info.createdAt.toLocaleDateString("kr", {year: "numeric", month:"long", day:"numeric"})}

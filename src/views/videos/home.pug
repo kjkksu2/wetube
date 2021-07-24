@@ -1,8 +1,8 @@
 extends ../base.pug
-include ../mixins/video.pug
+include ../mixins/homeVideo.pug
 
 block content 
-    div.video-grid
+    div.homeVideo-grid
         each potato in videos 
             +video(potato)
         else 
