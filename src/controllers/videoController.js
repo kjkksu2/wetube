@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import User from "../models/User";
 import Video from "../models/Video";
 
 // Home
@@ -14,7 +15,7 @@ export const search = async (req, res) => {
   } = req;
   const videos = await Video.find({
     title: { $regex: keyword, $options: "i" },
-  });
+  }).populate("owner");
   return res.render("videos/search", { pageTitle: "Search", videos });
 };
 

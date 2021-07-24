@@ -29,8 +29,7 @@ export const postJoin = async (req, res) => {
     }
 
     const user = await User.create({
-      avatarUrl:
-        "https://cdn.icon-icons.com/icons2/2406/PNG/512/user_account_icon_145918.png",
+      avatarUrl: "https://avatars.githubusercontent.com/u/35440139?v=4",
       username,
       email,
       birth,
@@ -118,7 +117,7 @@ export const postEditProfile = async (req, res) => {
     );
 
     req.session.user = user;
-    return res.redirect(`/users/${id}`);
+    return res.redirect("/");
   } catch (error) {
     console.log(error);
     return res
@@ -191,6 +190,25 @@ export const postUploadVideo = async (req, res) => {
   await user.save();
 
   return res.redirect("/");
+};
+
+// Video profile
+export const getVideoProfile = async (req, res) => {
+  const {
+    params: { id }, // user id
+  } = req;
+
+  const user = await User.findById(id);
+  const videos = await Video.find({ owner: user._id })
+    .populate("owner")
+    .sort({ createdAt: -1 });
+  console.log(user);
+
+  return res.render("users/videoProfile", {
+    pageTitle: "video-profile",
+    user,
+    videos,
+  });
 };
 
 // Github
