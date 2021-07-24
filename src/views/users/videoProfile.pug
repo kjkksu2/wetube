@@ -1,0 +1,12 @@
+extends ../base.pug
+include ../mixins/homeVideo.pug
+
+block content 
+    div.videoProfile__introduction
+        i.fas.fa-play-circle
+        span #{user.username} videos
+    div.homeVideo-grid
+        each potato in videos 
+            +video(potato)
+        else 
+            span No videos found
