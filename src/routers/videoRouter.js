@@ -12,7 +12,7 @@ const videoRouter = express.Router();
 // Watch
 videoRouter.get("/:id([0-9a-f]{24})", watch);
 
-// Edit
+// Edit Video
 videoRouter
   .route("/:id([0-9a-f]{24})/edit-video")
   .get(privateOnly, getEditVideo)

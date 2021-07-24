@@ -10,6 +10,7 @@ import {
   githubCallback,
   kakaoLogin,
   kakaoCallback,
+  getVideoProfile,
 } from "../controllers/userController";
 import {
   privateOnly,
@@ -37,6 +38,9 @@ userRouter
   .route("/:id([0-9a-f]{24})/upload-video")
   .get(privateOnly, getUploadVideo)
   .post(uploadVideo.single("videoFile"), postUploadVideo);
+
+// Video Profile
+userRouter.get("/:id([0-9a-f]{24})/video-profile", getVideoProfile);
 
 // Github
 userRouter.get("/github/login", publicOnly, githubLogin);
