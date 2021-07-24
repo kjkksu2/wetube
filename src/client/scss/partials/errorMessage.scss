@@ -1,0 +1,28 @@
+.errorMessage {
+  position: fixed;
+  z-index: 100;
+  top: 20px;
+  right: 42.5%;
+
+  animation: showErrorMessage 1s linear forwards;
+  animation-delay: 1.5s;
+  .errorMessage__text {
+    background-color: orange;
+    padding: 15px 25px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+@keyframes showErrorMessage {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
