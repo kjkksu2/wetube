@@ -7,6 +7,5 @@ div.userProfileIcon.hidden
             span=loggedUser.email 
             div.userProfileIcon__info--choice
                 a(href=`/users/${loggedUser._id}`) profile 
-                // 본인이 올린 video
-                a(href="#") video
+                a(href=`/users/${loggedUser._id}/video-profile`) video
                 a(href="/logout") logout 
