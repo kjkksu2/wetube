@@ -15,5 +15,13 @@ block content
                 h4.video-watch__content--dot •  
                 h4.video-watch__content--createTime #{video.createdAt.toLocaleDateString("kr", {year: "numeric", month:"long", day:"numeric"})}
         div.video-watch__owner
-            img(src=`/${video.owner.avatarUrl}`)
-            h4=video.owner.username
+            div.video-watch__owner--avatar
+                a(href=`/users/${video.owner._id}/video-profile`)
+                    if video.owner.avatarUrl.startsWith("https")
+                        img(src=video.owner.avatarUrl)
+                    else
+                        img(src=`/${video.owner.avatarUrl}`)
+            div.video-watch__owner--text
+                a(href=`/users/${video.owner._id}/video-profile`)
+                    h4.video-watch__owner--username=video.owner.username
+                h4.video-watch__owner--description=video.description

@@ -43,11 +43,28 @@
     padding: 20px 0px;
     display: flex;
     align-items: center;
-    img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      margin-right: 13px;
+
+    .video-watch__owner--avatar {
+      a {
+        img {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          margin-right: 13px;
+        }
+      }
+    }
+    .video-watch__owner--text {
+      a {
+        .video-watch__owner--username {
+          font-size: 17px;
+          color: rgba(0, 0, 0, 0.8);
+        }
+      }
+      .video-watch__owner--description {
+        margin-top: 5px;
+        color: rgba(0, 0, 0, 0.6);
+      }
     }
   }
 }
