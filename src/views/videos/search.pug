@@ -1,8 +1,9 @@
 extends ../base.pug
-include ../mixins/video
+include ../mixins/searchVideo.pug
 
 block content 
-    each potato in videos 
-        +video(potato)
-    else 
-        span No Videos Found.
+    div.searchVideo-grid
+        each potato in videos 
+            +video(potato)
+        else 
+            span No Videos Found.

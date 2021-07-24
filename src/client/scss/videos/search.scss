@@ -1,0 +1,59 @@
+.searchVideo-grid {
+  padding: 100px 55px 30px 30px;
+}
+
+.searchVideo {
+  width: 100%;
+  margin-bottom: 15px;
+  a {
+    width: 100%;
+    display: flex;
+
+    video {
+      width: 26%;
+      height: 213px;
+      margin-right: 20px;
+    }
+
+    .searchVideo__info {
+      width: 74%;
+      padding: 10px 0px;
+
+      .searchVideo__info--title {
+        font-size: 20px;
+        color: black;
+      }
+      .searchVideo__info--additional-info {
+        display: flex;
+        padding: 10px 0px;
+        font-size: 13px;
+        color: rgba(0, 0, 0, 0.7);
+        .searchVideo__info--dot {
+          margin: 0px 5px;
+        }
+      }
+      .searchVideo__info--owner {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+        }
+        h3 {
+          color: rgba(0, 0, 0, 0.8);
+          margin-left: 10px;
+        }
+      }
+      .searchVideo__info--content {
+        width: 90%;
+        h3 {
+          color: rgba(0, 0, 0, 0.8);
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}

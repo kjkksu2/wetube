@@ -1,0 +1,17 @@
+mixin video(info)
+    div.searchVideo
+        a(href=`/videos/${info._id}`)
+            video(src=info.fileUrl) 
+            div.searchVideo__info
+                h3.searchVideo__info--title=info.title 
+                div.searchVideo__info--additional-info
+                    h4.searchVideo__info--views 조회수 #{info.views}회
+                    h4.searchVideo__info--dot •   
+                    h4.searchVideo__info--createTime #{info.createdAt.toLocaleDateString("kr", {year: "numeric", month:"long", day:"numeric"})}
+                div.searchVideo__info--owner
+                    img(src=info.owner.avatarUrl)
+                    h3=info.owner.username
+                div.searchVideo__info--content
+                    h3=info.description 
+                    
+                    
