@@ -5,9 +5,44 @@
   flex-direction: column;
   .video-watch__screen {
     width: 65%;
+    position: relative;
     video {
       width: 100%;
-      height: 50%;
+    }
+    .video-watch__screen--controllers {
+      background-color: black;
+      padding: 0px 12px;
+      .video-watch__screen--timeline {
+        input {
+          cursor: pointer;
+          width: 100%;
+        }
+      }
+      .video-watch__screen--button {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        font-size: 20px;
+
+        .play,
+        .volume,
+        .time,
+        .screen {
+          padding: 12px;
+          cursor: pointer;
+        }
+
+        .controllers__first-block {
+          display: flex;
+          align-items: center;
+          .time {
+            font-size: 15px;
+            cursor: initial;
+          }
+        }
+      }
     }
   }
   .video-watch__choice {

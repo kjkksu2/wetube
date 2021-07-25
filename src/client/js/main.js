@@ -6,3 +6,4 @@ import "./headerIcons/videoIcon.js";
 import "./headerIcons/userProfileIcon.js";
 import "./uploadVideo.js";
 import "./editProfile.js";
+import "./videoPlayer";

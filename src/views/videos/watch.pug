@@ -3,7 +3,23 @@ extends ../base.pug
 block content 
     div.video-watch
         div.video-watch__screen
-            video(src="/" + video.fileUrl, controls=true)
+            video(src="/" + video.fileUrl)
+            div.video-watch__screen--controllers
+                div.video-watch__screen--timeline
+                    input(type="range", value=0, step=1, min=0).timeline
+                div.video-watch__screen--button
+                    div.controllers__first-block
+                        div.play
+                            i.fas.fa-play
+                        div.volume
+                            i.fas.fa-volume-up
+                        div.time
+                            span.time__current 00:00:00
+                            span /
+                            span.time__total 00:00:00
+                    div.controllers__second-block
+                        div.screen
+                            i.fas.fa-expand
         if loggedUser && loggedUser._id === video.owner.id
             div.video-watch__choice
                 a(href=video._id + "/edit-video") Edit Video &rarr;
