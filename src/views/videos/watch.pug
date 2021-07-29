@@ -9,14 +9,18 @@ block content
                     input(type="range", value=0, step=1, min=0).timeline
                 div.video-watch__screen--button
                     div.controllers__first-block
-                        div.play
-                            i.fas.fa-play
-                        div.volume
-                            i.fas.fa-volume-up
-                        div.time
-                            span.time__current 00:00:00
-                            span /
-                            span.time__total 00:00:00
+                        div.controllers__first-block--first
+                            div.play
+                                i.fas.fa-play
+                        div.controllers__first-block--second
+                            div.volume
+                                i.fas.fa-volume-up
+                            div.volumeline__div
+                                input(type="range", value=1, step=0.1, min=0, max=1).volumeline.hidden
+                            div.time
+                                span.time__current 00:00:00
+                                span /
+                                span.time__total 00:00:00
                     div.controllers__second-block
                         div.screen
                             i.fas.fa-expand

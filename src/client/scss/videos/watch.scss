@@ -6,12 +6,25 @@
   .video-watch__screen {
     width: 65%;
     position: relative;
+
+    &.hide-mouse {
+      cursor: none;
+    }
+
     video {
       width: 100%;
     }
     .video-watch__screen--controllers {
-      background-color: black;
       padding: 0px 12px;
+      position: absolute;
+      bottom: 5px;
+      width: 100%;
+      box-sizing: border-box;
+
+      &.hidden {
+        display: none;
+      }
+
       .video-watch__screen--timeline {
         input {
           cursor: pointer;
@@ -22,24 +35,41 @@
         box-sizing: border-box;
         display: flex;
         justify-content: space-between;
-        align-items: center;
         color: white;
         font-size: 20px;
+        padding: 12px;
 
         .play,
         .volume,
-        .time,
+        .volumeline,
         .screen {
-          padding: 12px;
           cursor: pointer;
         }
 
         .controllers__first-block {
           display: flex;
-          align-items: center;
-          .time {
-            font-size: 15px;
-            cursor: initial;
+          .controllers__first-block--second {
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+
+            .volumeline__div {
+              margin: 0px 10px;
+              .volumeline {
+                width: 90px;
+
+                &.hidden {
+                  display: none;
+                }
+              }
+            }
+
+            .time {
+              font-size: 15px;
+              span:nth-child(2) {
+                margin: 0px 5px;
+              }
+            }
           }
         }
       }
