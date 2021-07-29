@@ -2,7 +2,7 @@ extends ../base.pug
 
 block content 
     div.video-watch
-        div.video-watch__screen
+        div.video-watch__screen(data-id=video.id)
             video(src="/" + video.fileUrl)
             div.video-watch__screen--controllers
                 div.video-watch__screen--timeline

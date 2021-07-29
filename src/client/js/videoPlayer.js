@@ -136,6 +136,14 @@ const getCurrentTime = () => {
 
 const handleVideo = () => {
   playBtn.className = "fas fa-undo-alt";
+
+  const {
+    dataset: { id },
+  } = videoContainer;
+
+  fetch(`/api/videos/${id}/views`, {
+    method: "POST",
+  });
 };
 
 const resetCurrentTime = () => {
