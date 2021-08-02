@@ -1,23 +1,26 @@
 const videoContainer = document.querySelector(".video-watch__screen");
-const video = videoContainer.querySelector("video");
-const videoControllers = videoContainer.querySelector(
-  ".video-watch__screen--controllers"
-);
 
-const volume = videoControllers.querySelector(
-  ".controllers__first-block--second"
-);
+if (videoContainer) {
+  const video = videoContainer.querySelector("video");
+  const videoControllers = videoContainer.querySelector(
+    ".video-watch__screen--controllers"
+  );
 
-const playBtn = videoControllers.querySelector(".fa-play");
-const volumeBtn = videoControllers.querySelector(".fa-volume-up");
-const screenBtn = videoControllers.querySelector(".fa-expand");
+  const volume = videoControllers.querySelector(
+    ".controllers__first-block--second"
+  );
 
-const timeline = videoControllers.querySelector(".timeline");
-const volumeline = videoControllers.querySelector(".volumeline");
+  const playBtn = videoControllers.querySelector(".fa-play");
+  const volumeBtn = videoControllers.querySelector(".fa-volume-up");
+  const screenBtn = videoControllers.querySelector(".fa-expand");
 
-const videoTime = videoControllers.querySelector(".time");
-const totalTime = videoTime.querySelector(".time__total");
-const currentTime = videoTime.querySelector(".time__current");
+  const timeline = videoControllers.querySelector(".timeline");
+  const volumeline = videoControllers.querySelector(".volumeline");
+
+  const videoTime = videoControllers.querySelector(".time");
+  const totalTime = videoTime.querySelector(".time__total");
+  const currentTime = videoTime.querySelector(".time__current");
+}
 
 let tempVolume = 1;
 let volumeTimeout = 0;
