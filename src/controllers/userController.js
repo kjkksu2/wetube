@@ -192,6 +192,11 @@ export const postUploadVideo = async (req, res) => {
   return res.redirect("/");
 };
 
+// Record Video
+export const getRecordVideo = (req, res) => {
+  return res.render("users/recordVideo", { pageTitle: "record-video" });
+};
+
 // Video profile
 export const getVideoProfile = async (req, res) => {
   const {

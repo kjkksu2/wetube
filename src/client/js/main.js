@@ -4,6 +4,8 @@ import "../scss/style.scss";
 // JS
 import "./headerIcons/videoIcon.js";
 import "./headerIcons/userProfileIcon.js";
+
 import "./uploadVideo.js";
 import "./editProfile.js";
-import "./videoPlayer";
+import "./videoPlayer.js";
+import "./recordVideo.js";

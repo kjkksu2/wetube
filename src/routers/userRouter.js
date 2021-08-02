@@ -11,6 +11,7 @@ import {
   kakaoLogin,
   kakaoCallback,
   getVideoProfile,
+  getRecordVideo,
 } from "../controllers/userController";
 import {
   privateOnly,
@@ -38,6 +39,9 @@ userRouter
   .route("/:id([0-9a-f]{24})/upload-video")
   .get(privateOnly, getUploadVideo)
   .post(uploadVideo.single("videoFile"), postUploadVideo);
+
+// Record
+userRouter.get("/:id([0-9a-f]{24}/record-video)", getRecordVideo);
 
 // Video Profile
 userRouter.get("/:id([0-9a-f]{24})/video-profile", getVideoProfile);
