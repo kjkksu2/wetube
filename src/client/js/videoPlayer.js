@@ -1,26 +1,24 @@
 const videoContainer = document.querySelector(".video-watch__screen");
 
-if (videoContainer) {
-  const video = videoContainer.querySelector("video");
-  const videoControllers = videoContainer.querySelector(
-    ".video-watch__screen--controllers"
-  );
+const video = videoContainer.querySelector("video");
+const videoControllers = videoContainer.querySelector(
+  ".video-watch__screen--controllers"
+);
 
-  const volume = videoControllers.querySelector(
-    ".controllers__first-block--second"
-  );
+const volume = videoControllers.querySelector(
+  ".controllers__first-block--second"
+);
 
-  const playBtn = videoControllers.querySelector(".fa-play");
-  const volumeBtn = videoControllers.querySelector(".fa-volume-up");
-  const screenBtn = videoControllers.querySelector(".fa-expand");
+const playBtn = videoControllers.querySelector(".fa-play");
+const volumeBtn = videoControllers.querySelector(".fa-volume-up");
+const screenBtn = videoControllers.querySelector(".fa-expand");
 
-  const timeline = videoControllers.querySelector(".timeline");
-  const volumeline = videoControllers.querySelector(".volumeline");
+const timeline = videoControllers.querySelector(".timeline");
+const volumeline = videoControllers.querySelector(".volumeline");
 
-  const videoTime = videoControllers.querySelector(".time");
-  const totalTime = videoTime.querySelector(".time__total");
-  const currentTime = videoTime.querySelector(".time__current");
-}
+const videoTime = videoControllers.querySelector(".time");
+const totalTime = videoTime.querySelector(".time__total");
+const currentTime = videoTime.querySelector(".time__current");
 
 let tempVolume = 1;
 let volumeTimeout = 0;
@@ -167,18 +165,16 @@ const resetVolume = (event) => {
   }
 };
 
-if (videoContainer) {
-  videoContainer.addEventListener("mousemove", moveVideoContainer);
-  videoContainer.addEventListener("mouseleave", leaveVideoContainer);
-  playBtn.addEventListener("click", handlePlay);
-  volumeBtn.addEventListener("click", handleMute);
-  volumeBtn.addEventListener("mouseenter", enterVolume);
-  volume.addEventListener("mouseleave", leaveVolume);
-  // 나중에 키보드로 바꿀 때 icon도 받아야함. keydown으로
-  screenBtn.addEventListener("click", handleScreen);
-  video.addEventListener("loadedmetadata", getTotalTime);
-  video.addEventListener("timeupdate", getCurrentTime);
-  video.addEventListener("ended", handleVideo);
-  timeline.addEventListener("input", resetCurrentTime);
-  volumeline.addEventListener("input", resetVolume);
-}
+videoContainer.addEventListener("mousemove", moveVideoContainer);
+videoContainer.addEventListener("mouseleave", leaveVideoContainer);
+playBtn.addEventListener("click", handlePlay);
+volumeBtn.addEventListener("click", handleMute);
+volumeBtn.addEventListener("mouseenter", enterVolume);
+volume.addEventListener("mouseleave", leaveVolume);
+// 나중에 키보드로 바꿀 때 icon도 받아야함. keydown으로
+screenBtn.addEventListener("click", handleScreen);
+video.addEventListener("loadedmetadata", getTotalTime);
+video.addEventListener("timeupdate", getCurrentTime);
+video.addEventListener("ended", handleVideo);
+timeline.addEventListener("input", resetCurrentTime);
+volumeline.addEventListener("input", resetVolume);

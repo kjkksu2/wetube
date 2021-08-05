@@ -45,3 +45,6 @@ block content
                 a(href=`/users/${video.owner._id}/video-profile`)
                     h4.video-watch__owner--username=video.owner.username
                 h4.video-watch__owner--description=video.description
+
+block videoPlayer
+    script(src="/assets/js/videoPlayer.js") 
