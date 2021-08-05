@@ -7,5 +7,3 @@ import "./headerIcons/userProfileIcon.js";
 
 import "./uploadVideo.js";
 import "./editProfile.js";
-import "./videoPlayer.js";
-import "./recordVideo.js";
