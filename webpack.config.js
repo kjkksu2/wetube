@@ -25,8 +25,16 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"],
-            plugins: ["@babel/plugin-transform-runtime"],
+            presets: [
+              [
+                "@babel/preset-env",
+                {
+                  corejs: 3,
+                  useBuiltIns: "usage",
+                  shippedProposals: true,
+                },
+              ],
+            ],
           },
         },
       },
